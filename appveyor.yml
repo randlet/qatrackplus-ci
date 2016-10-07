@@ -26,6 +26,7 @@ init:
 
 install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - cmd: type deploy\appveyor_mssql.py >> qatrack\test_settings.py
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
@@ -33,7 +34,6 @@ install:
   - activate test-environment
   - pip install -r requirements\test.txt
   - pip install -r requirements\win.txt
-  - cmd: type deploy\appveyor_mssql.py >> qatrack\test_settings.py
 
 build_script:
   - ps: deploy\sqlserver.ps1 SQL2008R2SP2
