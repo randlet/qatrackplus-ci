@@ -30,20 +30,9 @@ NOSE_ARGS = [
     '--nologcapture',
     '--with-id',
 ]
-# IN-MEMORY TEST DATABASE
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": "",
-    },
-}
 
 NOTIFICATIONS_ON = False
-DEBUG = True
+DEBUG = False
 
 SELENIUM_DRIVER = webdriver.Firefox
 os.environ['DJANGO_LIVE_TEST_SERVER_ADDRESS'] = 'localhost:8000'

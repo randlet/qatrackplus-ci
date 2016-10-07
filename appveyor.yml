@@ -26,7 +26,7 @@ init:
 
 install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
-  - cmd: type deploy\appveyor_mssql.py >> qatrack\test_settings.py
+  - cmd: copy /Y deploy\appveyor_mssql.py qatrack\local_settings.py
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a

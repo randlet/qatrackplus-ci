@@ -31,10 +31,10 @@ before_install:
 install:
   - pip install --upgrade pip
   - if [[ $DB == mysql ]]; then pip install -q mysqlclient; fi
-  - if [[ $DB == mysql ]]; then cp deploy/travis_mysql.py qatrack/local_settings.py; fi
+  - if [[ $DB == mysql ]]; then cat deploy/travis_mysql.py >> qatrack/test_settings.py; fi
   - if [[ $DB == postgres ]]; then pip install -q psycopg2; fi
-  - if [[ $DB == postgres ]]; then cp deploy/travis_postgres.py qatrack/local_settings.py; fi
-  - if [[ $DB == sqlite ]]; then cp deploy/travis_sqlite.py qatrack/local_settings.py; fi
+  - if [[ $DB == postgres ]]; then cat deploy/travis_postgres.py >> qatrack/test_settings.py; fi
+  - if [[ $DB == sqlite ]]; then cat deploy/travis_sqlite.py >> qatrack/test_settings.py; fi
   - pip install -r requirements/test.txt
 
 script:

@@ -5,14 +5,14 @@ SELENIUM_USE_CHROME = False
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sqlserver_ado',
+        'ENGINE': 'sql_server.pyodbc',
         'NAME': 'qatrackplus',
         'USER': 'qatrackplus',
         'PASSWORD': 'qatrackplus',
         'HOST': '',
         'PORT': '',
         'OPTIONS': {
-            'provider': 'sqlncli11'
+            'unicode_results': True
         }
     }
 }
