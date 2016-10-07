@@ -1,9 +1,25 @@
 build: false
 
 environment:
+
+  SQLSERVER_ENV_SQLSERVER_HOST: localhost
+  SQLSERVER_ENV_SQLSERVER_PORT: 1433
+  SQLSERVER_ENV_SQLSERVER_USER: qatrack
+  SQLSERVER_ENV_SQLSERVER_PASSWORD: qatrackpass
+  SQLSERVER_ENV_SQLSERVER_DATABASE: qatrackdb
+
   matrix:
     - PYTHON_VERSION: 3.4
       MINICONDA: C:\Miniconda3
+
+services:
+    #  - mssql2014           # start SQL Server 2014 Express
+    #  - mssql2014rs         # start SQL Server 2014 Express and Reporting Services
+    #  - mssql2012sp1        # start SQL Server 2012 SP1 Express
+    #  - mssql2012sp1rs      # start SQL Server 2012 SP1 Express and Reporting Services
+  - mssql2008r2sp2      # start SQL Server 2008 R2 SP2 Express
+  - mssql2008r2sp2rs    # start SQL Server 2008 R2 SP2 Express and Reporting Services
+
 
 init:
   - "ECHO %PYTHON_VERSION% %MINICONDA%"
@@ -15,8 +31,13 @@ install:
   - conda info -a
   - "conda create -q -n test-environment python=%PYTHON_VERSION% numpy scipy matplotlib pywin32"
   - activate test-environment
-  - pip install -r requirements/test.txt
-  - pip install -r requirements/win.txt
+  - pip install -r requirements\test.txt
+  - pip install -r requirements\win.txt
+  - cmd: type deploy\appveyor_mssql.py >> qatrack\test_settings.py
+
+build_script:
+  - ps: deploy\sqlserver.ps1 SQL2008R2SP2
+  - sqlcmd -S localhost,1433 -U qatrack -P qatrackpass -Q "CREATE DATABASE qatrackdb" -d "master"
 
 test_script:
   - python manage.py test
