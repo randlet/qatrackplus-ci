@@ -7,8 +7,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'qatrackplus',
-        'USER': 'qatrackplus',
-        'PASSWORD': 'qatrackplus',
+        'USER': 'sa',
+        'PASSWORD': 'Password12!',
         'HOST': '',
         'PORT': '',
         'OPTIONS': {
