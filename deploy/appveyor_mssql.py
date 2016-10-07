@@ -6,7 +6,7 @@ SELENIUM_USE_CHROME = False
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'qatrackplus',
+        'NAME': 'qatrackdb',
         'USER': 'sa',
         'PASSWORD': 'Password12!',
         'HOST': '',
