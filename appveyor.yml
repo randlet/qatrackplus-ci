@@ -4,8 +4,8 @@ environment:
 
   SQLSERVER_ENV_SQLSERVER_HOST: localhost
   SQLSERVER_ENV_SQLSERVER_PORT: 1433
-  SQLSERVER_ENV_SQLSERVER_USER: qatrack
-  SQLSERVER_ENV_SQLSERVER_PASSWORD: qatrackpass
+  SQLSERVER_ENV_SQLSERVER_USER: sa
+  SQLSERVER_ENV_SQLSERVER_PASSWORD: Password12!
   SQLSERVER_ENV_SQLSERVER_DATABASE: qatrackdb
 
   matrix:
@@ -37,7 +37,7 @@ install:
 
 build_script:
   - ps: deploy\sqlserver.ps1 SQL2008R2SP2
-  - sqlcmd -S localhost,1433 -U qatrack -P qatrackpass -Q "CREATE DATABASE qatrackdb" -d "master"
+  - sqlcmd -S localhost,1433 -U sa -P Password12! -Q "CREATE DATABASE qatrackdb" -d "master"
 
 test_script:
   - python manage.py test
