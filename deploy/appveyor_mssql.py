@@ -9,7 +9,7 @@ DATABASES = {
         'NAME': 'qatrackdb',
         'USER': 'sa',
         'PASSWORD': 'Password12!',
-        'HOST': '',
+        'HOST': 'localhost\SQLExpress',
         'PORT': '',
         'OPTIONS': {
             'unicode_results': True
