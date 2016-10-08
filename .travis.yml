@@ -38,4 +38,4 @@ install:
 
 script:
   - cat qatrack/local_settings.py
-  - yes | python manage.py test
+  - yes | pytest
