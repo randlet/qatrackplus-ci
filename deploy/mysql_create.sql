@@ -1,3 +1,3 @@
 create database qatrackplus;
-GRANT ALL ON qatrackplus.* TO 'qatrackplus'@'localhost' IDENTIFIED BY 'qatrackplus';
+GRANT ALL ON *.* TO 'qatrackplus'@'localhost' IDENTIFIED BY 'qatrackplus';
 
