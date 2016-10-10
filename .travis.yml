@@ -11,6 +11,7 @@ env:
 
 before_script:
   - if [[ $DB == mysql ]]; then mysql -u root < deploy/mysql_create.sql; fi
+  - if [[ $DB == mysql ]]; mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql; fi
   - if [[ $DB == postgres ]]; then psql -c "create database qatrackplus;" -U postgres; fi
   - if [[ $DB == postgres ]]; then psql -c "CREATE USER qatrackplus with PASSWORD 'qatrackplus';" -U postgres; fi
   - if [[ $DB == postgres ]]; then psql -c "GRANT ALL PRIVILEGES ON DATABASE qatrackplus to qatrackplus;" -U postgres; fi
