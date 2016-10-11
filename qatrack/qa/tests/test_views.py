@@ -1082,8 +1082,7 @@ class TestPerformQA(TestCase):
         self.assertEqual(response.context["current_day"], 2)
         self.assertEqual(response.context["last_day"], 1)
 
-        tli = utils.create_test_list_instance(unit_test_collection=utc, test_list=tl2, day=1)
-        print ("tli.day %s" % tli.day)
+        utils.create_test_list_instance(unit_test_collection=utc, test_list=tl2, day=1)
 
         response = self.client.get(url)
         self.assertEqual(response.context["current_day"], 1)

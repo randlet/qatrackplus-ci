@@ -404,8 +404,6 @@ class PerformQA(PermissionRequiredMixin, CreateView):
 
         requested_day = self.get_requested_day_to_perform()
         self.actual_day, self.test_list = self.unit_test_col.get_list(requested_day)
-        print("Requested Day %s" % requested_day)
-        print("Actual Day %s" % self.actual_day)
 
         if self.test_list is None:
             raise Http404

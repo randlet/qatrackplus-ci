@@ -39,6 +39,6 @@ install:
 
 script:
   - cat qatrack/local_settings.py
-  - if [[ $DB == mysql ]]; then yes | pytest qatrack/qa/tests/test_views.py::TestPerformQA::test_cycle; fi
+  - if [[ $DB == mysql ]]; then yes | pytest -m "not selenium"; fi
   - if [[ $DB -ne mysql ]]; then yes | pytest; fi
 
