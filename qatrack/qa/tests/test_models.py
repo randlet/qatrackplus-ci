@@ -1545,14 +1545,14 @@ class TestTestListInstance(TestCase):
 
         self.test_list_instance = self.create_test_list_instance()
 
-    def create_test_list_instance(self):
+    def create_test_list_instance(self, work_completed=None):
         utc = self.unit_test_collection
 
         tli = utils.create_test_list_instance(unit_test_collection=utc)
 
         for i, (v, test, status) in enumerate(zip(self.values, self.tests, self.statuses)):
             uti = models.UnitTestInfo.objects.get(test=test, unit=utc.unit)
-            ti = utils.create_test_instance(tli, unit_test_info=uti, value=v, status=status)
+            ti = utils.create_test_instance(tli, unit_test_info=uti, value=v, status=status, work_completed=work_completed)
             ti.reference = self.ref
             ti.tolerance = self.tol
             ti.test_list_instance = tli
@@ -1622,11 +1622,12 @@ class TestTestListInstance(TestCase):
         self.assertEqual(self.unit_test_collection.last_instance, None)
 
     def test_input_later(self):
-        tli = self.create_test_list_instance()
+        dt = timezone.now() + timezone.timedelta(seconds=1)
+        tli = self.create_test_list_instance(work_completed=dt)
         utc = models.UnitTestCollection.objects.get(pk=self.unit_test_collection.pk)
         self.assertEqual(utc.last_instance, tli)
 
-        tli.work_completed = timezone.now() - timezone.timedelta(days=1)
+        tli.work_completed = dt - timezone.timedelta(days=1)
         tli.save()
 
         utc = models.UnitTestCollection.objects.get(pk=self.unit_test_collection.pk)
