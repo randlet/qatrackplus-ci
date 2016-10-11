@@ -1548,11 +1548,11 @@ class TestTestListInstance(TestCase):
     def create_test_list_instance(self, work_completed=None):
         utc = self.unit_test_collection
 
-        tli = utils.create_test_list_instance(unit_test_collection=utc)
+        tli = utils.create_test_list_instance(unit_test_collection=utc, work_completed=work_completed)
 
         for i, (v, test, status) in enumerate(zip(self.values, self.tests, self.statuses)):
             uti = models.UnitTestInfo.objects.get(test=test, unit=utc.unit)
-            ti = utils.create_test_instance(tli, unit_test_info=uti, value=v, status=status, work_completed=work_completed)
+            ti = utils.create_test_instance(tli, unit_test_info=uti, value=v, status=status)
             ti.reference = self.ref
             ti.tolerance = self.tol
             ti.test_list_instance = tli
