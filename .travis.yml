@@ -19,9 +19,9 @@ python:
   - "3.6"
 
 env:
-  - DJANGO=1.11 DB=sqlite
-  - DJANGO=1.11 DB=postgres
-  - DJANGO=1.11 DB=mysql
+  - DJANGO=2.1 DB=sqlite
+  - DJANGO=2.1 DB=postgres
+  - DJANGO=2.1 DB=mysql
 
 before_script:
   - if [[ $DB == mysql ]]; then mysql -u root < deploy/mysql/create_db_and_role.sql; fi
