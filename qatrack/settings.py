@@ -570,7 +570,7 @@ def EXPLORER_PERMISSION_VIEW(user):
     return user.has_perm("qa.can_run_sql_reports")
 
 
-if os.path.exists('/root/.is_inside_docker'):
+if os.path.exists('/root/.is_inside_docker') and 'TRAVIS' not in os.environ:
     from .docker_settings import *  # NOQA
 
 # ------------------------------------------------------------------------------
