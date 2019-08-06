@@ -635,7 +635,7 @@ if USE_SQL_REPORTS:
     ]
 
     # use default database when testing
-    if any(('py.test' or 'pytest' in v) in arg for arg in sys.argv):
+    if any(('py.test' in arg or 'pytest' in arg) for arg in sys.argv):
         EXPLORER_CONNECTIONS = {'Default': 'default'}
         EXPLORER_DEFAULT_CONNECTION = 'default'
     elif 'readonly' not in DATABASES:
