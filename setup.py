@@ -71,7 +71,7 @@ setup(
         "markdown>=2.6.11,<2.7",
         "matplotlib>=2.2.2,<2.3",
         "numpy>=1.20.0,<1.21",
-        "pandas<=1.1.5,<1.2",
+        "pandas>=1.1,<1.2",
         "pep8>=1.7.0,<1.8",
         "pydicom>=2.1.2,<2.2",
         "pylinac-qatrackplus>=2.3.1.5",
