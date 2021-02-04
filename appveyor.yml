@@ -29,6 +29,7 @@ init:
   - "ECHO %PYTHON%"
 
 install:
+  - choco install googlechrome
   - "set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python --version"
   - cmd: copy /Y deploy\win\appveyor_mssql.py qatrack\local_settings.py
