@@ -53,7 +53,7 @@ setup(
         "django-filter>=1.1.0,<1.2",
         "django-form-utils>=1.0,<1.1",
         "django-registration>=2.1,<2.2",
-        "djangorestframework>=3.7.0,<3.8",
+        "djangorestframework>=3.7.0,<3.12",
         "djangorestframework-filters>=0.10.2post0,<0.11",
         "django-tastypie>=0.13,<0.14",
         "django-widget-tweaks>=1.4,<1.5",
