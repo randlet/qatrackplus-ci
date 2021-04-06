@@ -52,7 +52,7 @@ setup(
         "django-extensions>=1.7,<1.8",
         "django-filter>=1.1.0,<1.2",
         "django-form-utils>=1.0,<1.1",
-        "django-registration>=2.1,<2.2",
+        "django-registration>=2.1,<3.2",
         "djangorestframework>=3.7.0,<3.8",
         "djangorestframework-filters>=0.10.2post0,<0.11",
         "django-tastypie>=0.13,<0.14",
