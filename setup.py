@@ -47,7 +47,7 @@ setup(
         "django-contrib-comments>=1.8.0<1.9",
         "django-coverage>=1.2,<1.3",
         "django-crispy-forms>=1.6.0,<1.7",
-        "django-debug-toolbar>=1.8,<1.9",
+        "django-debug-toolbar>=1.8,<1.12",
         "django-dynamic-raw-id==2.4",
         "django-extensions>=1.7,<1.8",
         "django-filter>=1.1.0,<1.2",
