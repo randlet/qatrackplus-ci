@@ -38,7 +38,7 @@ setup(
         "django-formtools",
         "django-genericdropdown",
         "django_listable",
-        "Django>=1.11,<2",
+        "Django>=1.11,<3",
         "PyVirtualDisplay>=0.2,<0.3",
         "coreapi>=2.3,<2.4",
         "coverage>=4.5,<5",
